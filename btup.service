@@ -1,0 +1,12 @@
+[Unit]
+Description=BTUP
+After=connman.service
+
+[Service]
+Type=simple
+RemainAfterExit=true
+ExecStart=/home/root/btup.sh
+Environment="HOME=/home/root"
+WorkingDirectory=/home/root/
+[Install]
+WantedBy=multi-user.target
