@@ -8,6 +8,10 @@ while :
 do
 BNEP=$(ifconfig|grep bnep)
 SERVICE=$(connmanctl services| awk '{print $2}' | grep bluetooth)
+if [ -z $SERVICE ];then
+SERVICE=$(connmanctl services| awk '{print $3}' | grep bluetooth)
+fi
+
 echo $BNEP
 if [ -z $BNEP ] && [ ! -z $SERVICE ];then
 echo $SERVICE
