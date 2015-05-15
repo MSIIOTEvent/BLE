@@ -7,7 +7,7 @@ connmanctl enable bluetooth
 while :
 do
 BNEP=$(ifconfig|grep bnep)
-SERVICE=$(connmanctl services| awk '{print $3}')
+SERVICE=$(connmanctl services| awk '{print $2}' | grep bluetooth)
 echo $BNEP
 if [ -z $BNEP ] && [ ! -z $SERVICE ];then
 echo $SERVICE
